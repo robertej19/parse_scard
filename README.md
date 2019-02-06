@@ -1,2 +1,2 @@
 # parse_scard
-no guide line at this point sorry
+python parser.py -f 'scard.txt'
