@@ -1,8 +1,10 @@
-nevents:  100                    # number of events each job
+project_group:  rgaDIS           # project description
+user:  mungaro                   # username
+nevents:  800                    # number of events each job
 generator: clasdis               # one of clasdis, dvcs, disrad
 genOptions:  --t 20 25           # generator option
-gcards: /jlab/work/clas12.gcard  # gcard
-jobs: 1                          # number of jobs
+gcards: /jlab/work/clas12.gcard  # gcard gemc option
+jobs: 8                          # number of jobs
 project:  osg.clas12MC           # OSG project
 luminosity:  0                   # percent of 10^35 luminosity from 0 to 100
 tcurrent: -100                   # percent of torus current from -100 to 100

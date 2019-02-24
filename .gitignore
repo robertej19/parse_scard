@@ -1,2 +1,6 @@
 clas12simulations/*
 clas12simulations/
+*.pyc
+*.condor
+*.sh
+*.csh
