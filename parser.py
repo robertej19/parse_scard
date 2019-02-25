@@ -182,4 +182,4 @@ def write_runscirpt_sh(genExecutable, nevents, genOptions, genOutput, gcards, tc
     file.write("echo \"notsouseful started at\" $notsouseful_start\n")
     file.close()
 def condor_submit():
-    subprocess.call("condor_submit","clas12.condor")
+    subprocess.call(["condor_submit","clas12.condor"])
