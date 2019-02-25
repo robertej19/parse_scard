@@ -173,7 +173,7 @@ def write_runscirpt_sh(genExecutable, nevents, genOptions, genOutput, gcards, tc
     file.write("mv out.$ProcId.ev out_dir$ClusterId\n")
     file.write("mv out_gemc.hipo out_gemc.$ProcId.hipo\n")
     file.write("mv out_gemc.$ProcId.hipo out_dir$ClusterId\n\n")
-    file.write("final job log\n")
+    file.write("#final job log\n")
     file.write("printf \"Job finished time: \"; /bin/date\n\n")
     file.write("echo \"script started at\" $script_start\n")
     file.write("echo \"generator started at\" $generator_start\n")

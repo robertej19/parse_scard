@@ -34,13 +34,9 @@ if float(scard.pcurrent)%10==0:
 genOutput = scard.genOutput
 genExecutable = scard.genExecutable
 
-# #remove existing clas12.condor
-# os.remove("clas12.condor")
-#write new clas12.condor from scard.txt
+# overwrite clas12.condor
 write_clas12_condor(project,jobs)
-# #remove existing runscript.sh
-# os.remove("runscript.sh")
-#write new runscript.sh
+#overwrite runscript.sh
 write_runscirpt_sh(genExecutable, nevents, genOptions, genOutput, gcards, tcurrent, pcurrent)
 
 #if submit flag turned on, submit
