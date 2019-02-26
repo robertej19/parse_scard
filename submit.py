@@ -42,3 +42,7 @@ write_runscirpt_sh(genExecutable, nevents, genOptions, genOutput, gcards, tcurre
 #if submit flag turned on, submit
 if args.submit:
     condor_submit()
+#if not, print some messages
+else:
+    print "The scripts \'clas12.condor\' and \'runscript.sh\' are updated based on \'"+filename+".\'"
+    print "Please turn on -s flag for job submission e.g.) python submit.py -s scard.txt\n"

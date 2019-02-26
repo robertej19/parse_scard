@@ -74,6 +74,7 @@ class scard_parser:
         self.genExecutable = genExecutable.get(self.data.get("generator"))
 
 def write_clas12_condor(project, jobs):
+    print "overwrite \'clas12.condor\' in current directory ..."
     file = open("clas12.condor","w")
     file.write("# The UNIVERSE defines an execution environment. You will almost always use vanilla.\n")
     file.write("Universe = vanilla\n\n")
@@ -110,8 +111,10 @@ def write_clas12_condor(project, jobs):
     file.write("# specified thus far. 1 means launch only 1 job\n")
     file.write("Queue "+jobs+"\n")
     file.close()
+    print "Done.\n"
 
 def write_runscirpt_sh(genExecutable, nevents, genOptions, genOutput, gcards, tcurrent, pcurrent):
+    print "overwrite \'runscript.sh\' in current directory ..."
     file = open("runscript.sh","w")
     file.write("#!/bin/csh\n\n")
     file.write("set script_start  = `date`\n\n")
@@ -181,5 +184,8 @@ def write_runscirpt_sh(genExecutable, nevents, genOptions, genOutput, gcards, tc
     file.write("echo \"evio2hipo started at\" $evio2hipo_start\n")
     file.write("echo \"notsouseful started at\" $notsouseful_start\n")
     file.close()
+    print "Done.\n"
+
 def condor_submit():
+    print "submitting jobs from python script...\n"
     subprocess.call(["condor_submit","clas12.condor"])
