@@ -16,7 +16,7 @@ specific_key = args.key
 # If scard is not in a proper format, the class scard_parser should stop the script.
 scard = scard_parser(filename) # parse scard. scard is called only once at this line.
 data_scard = scard.data # This is dictionary which has every data from scard.
-project_group = scard.project_group  # Alternatively, they can be called in single name.
+group = scard.group  # Alternatively, they can be called in single name.
 user = scard.user
 nevents = scard.nevents
 generator = scard.generator
@@ -37,7 +37,7 @@ genExecutable = scard.genExecutable
 # overwrite clas12.condor
 write_clas12_condor(project,jobs)
 #overwrite runscript.sh
-write_runscirpt_sh(genExecutable, nevents, genOptions, genOutput, gcards, tcurrent, pcurrent)
+write_runscirpt_sh(group,user,genExecutable, nevents, genOptions, genOutput, gcards, tcurrent, pcurrent)
 
 #if submit flag turned on, submit
 if args.submit:

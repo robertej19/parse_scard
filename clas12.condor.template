@@ -1,0 +1,48 @@
+# The UNIVERSE defines an execution environment. You will almost always use vanilla.
+Universe = vanilla
+
++SINGULARITY_JOB = true
++SINGULARITY_SHELL = csh
+
+# singularity image
+
+Requirements  = (GLIDEIN_Site == "MIT_CampusFactory" && BOSCOGroup == "bosco_lns") 
++SingularityImage = "/cvmfs/singularity.opensciencegrid.org/jeffersonlab/clas12simulations:production"
++SingularityBindCVMFS = True
+
+request_cpus = 2
+request_memory = 2 GB
+
+# EXECUTABLE is the program your job will run It's often useful
+# to create a shell script to "wrap" your actual work.
+Executable = run_job.sh
+
+# Error and Output are the error and output channels from your job
+# Log is job's status, success, and resource consumption.
+Error  = log/job.$(Cluster).$(Process).err
+Output = log/job.$(Cluster).$(Process).out
+Log    = log/job.$(Cluster).$(Process).log
+
+# Send the job to Held state on failure.
+# on_exit_hold = (ExitBySignal == True) || (ExitCode != 0)
+
+# Periodically retry the jobs every 1 hour, up to a maximum of 5 retries.
+# periodic_release =  (NumJobStarts < 5) && ((CurrentTime - EnteredCurrentStatus) > 60*60)
+
+# default CLAS12 project
++ProjectName = "project_scard"
+
+
+# Input files. Do not add comments after the file list
+# transfer_input_files = cook.csh
+
+# output
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_input_files=runscript.sh,condor_wrapper
+transfer_output_files = out_dir$(Cluster)
+
+# QUEUE is the "start button" - it launches any jobs that have been
+# specified thus far. 1 means launch only 1 job
+Queue jobs_scard
+
