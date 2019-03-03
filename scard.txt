@@ -1,4 +1,4 @@
-project_group:  rgaDIS           # project description
+group:  rgaDIS                   # project description
 user:  mungaro                   # username
 nevents:  800                    # number of events each job
 generator: clasdis               # one of clasdis, dvcs, disrad
